@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+
 import { Category } from '@modules/categories/infra/typeorm/models/Category';
 
 const categories: Category[] = [];

@@ -20,7 +20,8 @@
      "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"strictPropertyInitialization": false
   },
   "include": ["src", "src/modules/payment/services/.ts"],
   "exclude": []
