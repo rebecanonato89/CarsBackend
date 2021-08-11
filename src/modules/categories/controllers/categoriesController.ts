@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
-
 import { CategoriesRepository } from '../infra/typeorm/repositories/CategoriesRepository';
+
+import { CreateCategoryService } from '../services/CreateCategoryService';
 
 export default class CreateCardController {
 	public async create(
@@ -11,7 +12,9 @@ export default class CreateCardController {
 		try {
 			const categoriesRepository = new CategoriesRepository();
 
-			categoriesRepository.create({ name, description });
+			const createCategoryService = new CreateCategoryService(categoriesRepository);
+
+			createCategoryService.execute({ name, description });
 
 			return response.status(200).json({ message: 'success' });
 		} catch (error) {
