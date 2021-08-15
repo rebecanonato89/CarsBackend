@@ -21,4 +21,20 @@ export default class CreateCardController {
 			return response.json({ message: 'Something went wrong: ', error });
 		}
 	}
+
+	public async list(
+		request: Request,
+		response: Response,
+	): Promise<Response | void> {
+		const { name, description } = request.body;
+		try {
+			const categoriesRepository = new CategoriesRepository();
+
+			const categories = categoriesRepository.list();
+
+			return response.status(200).json(categories);
+		} catch (error) {
+			return response.json({ message: 'Something went wrong: ', error });
+		}
+	}
 }
